@@ -1,21 +1,15 @@
 import React, { useState } from 'react';
-import NewBoxForm from './NewBoxForm';
 
+function Box({height, width, backgroundColor}) {
 
-function Box() {
-
-
-  function addBox({height, width, backgroundColor}) {
-
-
+  const myStyle = {
+    height,
+    width,
+    backgroundColor
   }
 
   return (
-    <div className='box'>
-      <NewBoxForm addBox={addBox} />
-
+    <div className="Box" style={myStyle}>
     </div>
-
   )
-}
-
+};
