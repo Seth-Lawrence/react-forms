@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 
-function Box({height, width, backgroundColor}) {
+function Box({height, width, backgroundColor, id}) {
 
   const myStyle = {
-    height,
-    width,
-    backgroundColor
+    height: height + 'px',
+    width: width + 'px',
+    backgroundColor: backgroundColor
   }
 
   return (
-    <div className="Box" style={myStyle}>
+    <div className="Box" key={id} style={{myStyle}}>
     </div>
   )
 };
+
+export default Box;

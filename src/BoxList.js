@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NewBoxForm from './NewBoxForm';
 import { v4 as uuid } from 'uuid';
+import Box from './Box';
 
 
 function BoxList() {
@@ -9,26 +10,27 @@ function BoxList() {
   function renderBoxes() {
     return (
         <ul>
-          {boxes.map(box => (
+          {boxes.map(box =>   (
               <li>
-                <Box //STUFF HERE/>
+                <Box box={box}/>
               </li>
           ))}
         </ul>
     );
   }
 
-  function addBox({height, width, backgroundColor}) {
-
-
+  function addBox(box) {
+    let newBox = {...box, id: uuid() };
+    setBoxes(boxes => [...boxes, newBox]);
   }
 
   return (
     <div className='box'>
       <NewBoxForm addBox={addBox} />
-
+      {renderBoxes()}
     </div>
 
   )
 }
 
+export default BoxList;
