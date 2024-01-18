@@ -7,11 +7,13 @@ import Box from './Box';
  * manages list of boxes
  *
  * state:
- * -array of boxes [{height, width, backgroundcolor, id,}]
+ * -array of boxes [{height, width, backgroundColor, id,}]
  *
  * boxlist --> box
  *
  */
+
+//TODO: get rid of warning in console
 
 function BoxList() {
   const[boxes, setBoxes] = useState([]);
@@ -30,6 +32,7 @@ function BoxList() {
                 backgroundColor={box.backgroundColor}
                 id={box.id}
                 removeBox = {removeBox}
+                key={box.id}
               />
           ))}
         </ul>
@@ -55,7 +58,7 @@ function BoxList() {
   function removeBox(id) {
     setBoxes(boxes => boxes.filter(box => id !== box.id));
   }
-
+//TODO: className should be exactly as your component is written (boxList instead of box)
   return (
     <div className='box'>
       <NewBoxForm addBox={addBox} />

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
  *
  * Box: render a box
  *
- * props: box.height, box.width, box.backgroundcolor, box.Id, removeBox()
+ * props: box.height, box.width, box.backgroundColor, box.id, removeBox()
  */
 
 function Box({height, width, backgroundColor, id, removeBox}) {
@@ -17,7 +17,7 @@ function Box({height, width, backgroundColor, id, removeBox}) {
 
   return (
     <>
-      <div className="Box" key={id} style={myStyle}>
+      <div className="Box" style={myStyle}>
       </div>
       <button onClick={() => removeBox(id)}>X</button>
     </>
