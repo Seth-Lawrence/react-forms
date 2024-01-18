@@ -1,15 +1,34 @@
 import React, { useState } from 'react';
 
+/**
+ * Form for creating new box to add to a list
+ *
+ * Has a state for the height, width and background color
+ * sends the {height, width, backgroundColor} to addBox function rec'd from
+ * parent
+ *
+ * boxlist --> NewBoxForm
+ */
 
 function NewBoxForm({ addBox }) {
   const initialState = {height: 0, width: 0, backgroundColor: ''};
   const [formData, setFormData] = useState(initialState);
+
+  /**
+   *
+   * send {height, width, backgroundColor} to parent
+   * and clearing form
+   */
 
   function handleSubmit(evt) {
     evt.preventDefault();
     addBox(formData);
     setFormData(initialState);
   };
+
+  /**
+   * Update local state with current elements
+   */
 
   function handleChange(evt) {
     const { name, value } = evt.target;
@@ -18,6 +37,8 @@ function NewBoxForm({ addBox }) {
       [name]: value,
     }));
   };
+
+  /** render form */
 
   return (
     <form onSubmit={handleSubmit}>

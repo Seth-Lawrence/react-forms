@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 
-function Box({height, width, backgroundColor, id}) {
+/**
+ *
+ * Box: render a box
+ *
+ * props: box.height, box.width, box.backgroundcolor, box.Id, removeBox()
+ */
+
+function Box({height, width, backgroundColor, id, removeBox}) {
 
   const myStyle = {
     height: Number(height),
@@ -9,8 +16,11 @@ function Box({height, width, backgroundColor, id}) {
   }
 
   return (
-    <div className="Box" key={id} style={myStyle}>
-    </div>
+    <>
+      <div className="Box" key={id} style={myStyle}>
+      </div>
+      <button onClick={() => removeBox(id)}>X</button>
+    </>
   );
 };
 
