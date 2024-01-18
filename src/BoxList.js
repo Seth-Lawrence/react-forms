@@ -11,9 +11,12 @@ function BoxList() {
     return (
         <ul>
           {boxes.map(box =>   (
-              <li>
-                <Box box={box}/>
-              </li>
+              <Box
+                height={box.height}
+                width={box.width}
+                backgroundColor={box.backgroundColor}
+                id={box.id}
+              />
           ))}
         </ul>
     );
